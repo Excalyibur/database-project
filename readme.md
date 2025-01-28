@@ -5,7 +5,7 @@
 
 
 ## Getting Started
-* `git clone https://github.com/whathellahor/2008-db.git`
+* `git clone https://github.com/Excalyibur/database-project.git`
 * in directory, create virtual environment in python `py -m venv venv`
 * in the directory, activate the virtual environment `./venv/Scripts/activate`
 
