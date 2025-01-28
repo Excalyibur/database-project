@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div id="create-review">
+
+  <div id="create-review-title">
+    <h5>CREATE REVIEW</h5>
+  </div>
+
+  <form id="create-user-form" method="POST" action="createreview">
+    <div class="create-review-form-group">
+      <select class="create-review-form-control" name="productchoice" aria-label="productIdList">
+        {% for product in data %}
+        <option value="{{ product[0] }}">{{ product[0] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="create-review-form-group">
+      <input type="text" class="create-review-form-control" name="reviewid" id="reviewIdinput"
+        placeholder="Enter Review ID">
+    </div>
+    <div class="create-review-form-group">
+      <input type="text" class="create-review-form-control" name="review" id="reviewInput" placeholder="Enter Review">
+    </div>
+    <div class="create-review-form-group">
+      <select class="create-review-form-control" name="userchoice" aria-label="productIdList">
+        {% for user in data2 %}
+        <option value="{{ user[0] }}">{{ user[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button id="create-review-button" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+{% endblock %}

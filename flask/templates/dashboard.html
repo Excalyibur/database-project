@@ -1,0 +1,106 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div class="box-container">
+
+    <div class="box">
+        <div class="text">
+            <h2 class="topic-heading">{{data1}}</h2>
+            <p id="dashboard-card-title">Total Number of Products</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="text">
+            <h2 class="topic-heading">{{data2}}</h2>
+            <p id="dashboard-card-title">Total Number of Categories</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="text">
+            <h2 class="topic-heading">{{data3}}</h2>
+            <p id="dashboard-card-title">Average Rating</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="text">
+            <h2 class="topic-heading">{{ '%.0f%%' % (data4 * 100) }}</h2>
+            <p id="dashboard-card-title">Average Discount Percentage</p>
+        </div>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="grid-item">
+        <div class="card">
+            <img class="dashboardgraph" src="data:image/png;base64,{{ img_data }}" alt="Top 10 Categories Piechart">
+        </div>
+    </div>
+    <div class="grid-item">
+        <div class="card">
+            <img class="dashboardgraph" src="data:image/png;base64,{{ img_data2 }}" alt="Ratings Barchart">
+        </div>
+    </div>
+    <div class="grid-item">
+        <table id="product-table">
+            <tr id="product-table">
+                <th>Top 10 Highest Discount Products</th>
+            </tr>
+            <tr id="product-table-row">
+                <th id="product-table-id-column">Product Name</th>
+                <th id="product-table-image-column">Discounted Price</th>
+                <th id="product-table-image-column">Discounted Percentage</th>
+            </tr>
+            {% for product in tabledata1 %}
+            <tr id="product-table-row-content">
+                <td id="product-table-id-row">{{ product[0] }}</td>
+                <td id="product-table-name-row">${{ '{:.2f}'.format(product[1]) }}</td>
+                <td id="product-table-name-row">{{ '%.0f%%' % (product[2] * 100) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="grid-item">
+        <table id="product-table">
+            <tr id="product-table">
+                <th>Top 10 Highest Rating Products</th>
+            </tr>
+            <tr id="product-table-row">
+                <th id="product-table-id-column">Product Name</th>
+                <th id="product-table-image-column">Rating</th>
+            </tr>
+            {% for product in tabledata2 %}
+            <tr id="product-table-row-content">
+                <td id="product-table-id-row">{{ product[0] }}</td>
+                <td id="product-table-name-row">{{ product[1] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="grid-item">
+        <table id="product-table">
+            <tr id="product-table">
+                <th>Product Recommendations</th>
+            </tr>
+            <tr id="product-table-row">
+                <th id="product-table-id-column">Product Name</th>
+                <th id="product-table-image-column">Category Name</th>
+                <th id="product-table-image-column">Rating</th>
+                <th id="product-table-image-column">Rating Count</th>
+            </tr>
+            {% for product in tabledata3 %}
+            <tr id="product-table-row-content">
+                <td id="product-table-id-row">{{ product[0] }}</td>
+                <td id="product-table-id-row">{{ product[1] }}</td>
+                <td id="product-table-id-row">{{ product[2] }}</td>
+                <td id="product-table-id-row">{{ product[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,582 @@
+/* Global Styles */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* index.html */
+
+/* Search Background */
+
+#top-body-section {
+  background-image: url("/static/images/title-background.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 33%;
+}
+
+/* Bottom Body Section (Below Searchbar) */
+
+#bottom-body-section {
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 70%;
+  overflow: auto;
+}
+
+/* Top Navbar CSS */
+
+#top-navigation-bar {
+  padding: 2% 0% 1% 3%;
+  display: flex;
+}
+
+/* AMAZIN Logo */
+#logo {
+  width: 10%;
+}
+
+#logo img {
+  width: 100%;
+}
+
+/* Top Navbar Links */
+
+#nav-links {
+  width: 80%;
+  padding-top: 0.9%;
+  display: inline-block;
+}
+
+#leading-link {
+  margin-left: 5%;
+}
+
+#nav-links a {
+  text-decoration: none;
+  color: rgb(218, 218, 218);
+  padding-left: 3%;
+}
+
+/* Searchbar */
+
+#search-title-section {
+  padding-left: 2%;
+  color: rgb(218, 218, 218);
+}
+
+#search-title {
+  font-size: 25px;
+  margin: 0;
+  padding: 1%;
+}
+
+#searchbar-section {
+  margin: 0 3% 0 3%;
+}
+
+#searchbar-section form {
+  display: flex;
+  align-items: center;
+}
+
+#main-search-bar {
+  background-image: url("/static/images/find.png");
+  background-position: 20px center;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  padding: 20px 20px 20px 60px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  width: 90%;
+  margin-right: 5px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+#main-search-button {
+  background-color: #186181;
+  color: white;
+  width: 10%;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 20px 20px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Searcn Filter Buttons */
+
+#search-filter-section {
+  height: 100%;
+}
+
+#leading-filter-button1 {
+  margin-left: 3%;
+}
+
+#leading-filter-button2,
+#leading-filter-button3 {
+  margin-left: 10px;
+}
+
+.filter-button-group {
+  margin-top: 10px;
+}
+
+#search-filter-section button {
+  font-family: "Poppins", sans-serif;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+#search-filter-section button:hover {
+  background-color: #186181;
+  color: white;
+}
+
+#search-filter-section button.active {
+  background-color: #186181;
+  color: white;
+}
+
+/* End of index.html */
+
+/* Start of createuser.html */
+
+/* Create User Form Background */
+
+#create-user {
+  background-color: #f1f1f1;
+  width: 25%;
+  height: 380px;
+  margin: 0 auto; /* center horizontally */
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 80px;
+  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+#create-user-title {
+  font-size: 40px;
+  align-items: center;
+  text-align: center;
+}
+
+#create-user-title h5 {
+  padding-top: 50px;
+  color: #073d54;
+  margin: 0;
+}
+
+#create-user-form {
+  margin: 0;
+  margin-top: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.create-user-form-group {
+  align-items: center;
+  text-align: center;
+}
+
+.create-user-form-control {
+  padding: 20px;
+  width: 70%;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+#create-user-button {
+  background-color: #e36324;
+  padding: 3%;
+  border: none;
+  border-radius: 40px;
+  margin-top: 5%;
+  font-weight: bold;
+  width: 30%;
+  color: wheat;
+  font-family: "Poppins", sans-serif;
+}
+
+/* End of createuser.html */
+
+/* Start of createreview.html */
+
+/* Create Review Form Background */
+
+#create-review {
+  background-color: #f1f1f1;
+  width: 500px;
+  height: 550px;
+  margin: 0 auto; /* center horizontally */
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 80px;
+  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+#create-review-title {
+  font-size: 40px;
+  align-items: center;
+  text-align: center;
+}
+
+#create-review-title h5 {
+  padding-top: 50px;
+  color: #073d54;
+  margin: 0;
+}
+
+#create-review-form {
+  margin: 0;
+  margin-top: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.create-review-form-group {
+  align-items: center;
+  text-align: center;
+}
+
+.create-review-form-control {
+  padding: 20px 20px 20px 20px;
+  width: 70%;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+#create-review-button {
+  background-color: #e36324;
+  padding: 3%;
+  border: none;
+  border-radius: 40px;
+  margin-top: 5%;
+  font-weight: bold;
+  width: 30%;
+  color: wheat;
+  font-family: "Poppins", sans-serif;
+}
+
+/* End of createreview.html */
+
+/* Start of createproduct.html */
+
+/* Create Product Form Background */
+
+#create-product {
+  background-color: #f1f1f1;
+  width: 500px;
+  height: 950px;
+  margin: 0 auto; /* center horizontally */
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+#create-product-title {
+  font-size: 40px;
+  align-items: center;
+  text-align: center;
+}
+
+#create-product-title h5 {
+  padding-top: 50px;
+  color: #073d54;
+  margin: 0;
+}
+
+#create-product-form {
+  margin: 0;
+  margin-top: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.create-product-form-group {
+  align-items: center;
+  text-align: center;
+}
+
+.create-product-form-control {
+  padding: 20px 20px 20px 20px;
+  width: 70%;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+#create-product-button {
+  background-color: #e36324;
+  padding: 3%;
+  border: none;
+  border-radius: 40px;
+  margin-top: 5%;
+  font-weight: bold;
+  width: 30%;
+  color: wheat;
+  font-family: "Poppins", sans-serif;
+}
+
+/* End of createproduct.html */
+
+/* Start of createcategory.html */
+
+/* Create Category Form Background */
+
+#create-category {
+  background-color: #f1f1f1;
+  width: 25%;
+  height: 380px;
+  margin: 0 auto; /* center horizontally */
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 80px;
+  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+#create-category-title {
+  font-size: 40px;
+  align-items: center;
+  text-align: center;
+}
+
+#create-category-title h5 {
+  padding-top: 50px;
+  color: #073d54;
+  margin: 0;
+}
+
+#create-category-form {
+  margin: 0;
+  margin-top: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.create-category-form-group {
+  align-items: center;
+  text-align: center;
+}
+
+.create-category-form-control {
+  padding: 20px;
+  width: 70%;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+#create-category-button {
+  background-color: #e36324;
+  padding: 3%;
+  border: none;
+  border-radius: 40px;
+  margin-top: 5%;
+  font-weight: bold;
+  width: 30%;
+  color: wheat;
+  font-family: "Poppins", sans-serif;
+}
+
+/* End of createuser.html */
+
+/* Start of productres.html */
+
+/* Product Search Results Table Header */
+
+#searchres_header {
+  text-align: center;
+  margin: 1% 0 1% 0;
+}
+
+#searchres_header p {
+  margin: 0;
+}
+
+/* Product Search Results Edit Button */
+
+#table-update-button {
+  background-color: yellowgreen;
+}
+
+/* Product Search Results Delete Button */
+
+#table-delete-button {
+  background-color: maroon;
+  color: white;
+}
+
+/* Product Search Results Action Buttons */
+
+.table-button-class,
+.update-button-class {
+  width: 100px;
+  padding: 4% 0 4% 0;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Product Search Results Table */
+
+#product-table {
+  margin: 0 auto;
+}
+
+#product-table-row {
+  background-color: #2d8f8d;
+}
+
+#product-table-row th {
+  padding: 1% 0 1% 0;
+}
+
+#product-table-id-column {
+  padding: 0 10px 0 10px;
+}
+
+#product-table-image-column,
+#product-table-rating-column {
+  width: 100px;
+}
+
+#product-table-name-column {
+  width: 300px;
+}
+
+#product-table-description-column {
+  width: 800px;
+}
+
+#product-table-image-column,
+#product-table-link-column,
+#product-table-rating-column,
+#product-table-actions-column,
+#product-table-description-column {
+  padding: 0 10px 0 10px;
+}
+
+#product-table-description-row {
+  padding: 10px;
+}
+
+#product-table-id-row,
+#product-table-link-row,
+#product-table-username-row,
+#product-table-review-row,
+#product-table-rating-row {
+  text-align: center;
+  padding: 0 10px 0 10px;
+}
+
+#product-table-image-row {
+  padding: 10px;
+}
+
+#product-table-name-row {
+  padding: 10px;
+}
+
+#product-table-link-row a {
+  text-decoration: none;
+  color: black;
+}
+
+#product-table-actions-row {
+  padding: 0 10px 0 10px;
+}
+
+#product-table-row-content:nth-child(even) {
+  background-color: #dedede;
+}
+
+#product-table-row-content:nth-child(odd) {
+  background-color: #bbbbbb;
+}
+
+#product-table-review-column,
+#product-table-username-column {
+  width: 100px;
+}
+
+/* End of productres.html */
+
+/* Start of dashboard.html */
+
+/* 4 Top Cards CSS */
+
+.box-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.box {
+  height: 250px;
+  width: 20%;
+  border-radius: 20px;
+  background-color: rgb(231, 231, 231);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+/* Dashboard Graphs Layout CSS */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
+
+.grid-item {
+  padding: 20px;
+  text-align: center;
+}
+
+.dashboardgraph {
+  width: 100%;
+}
+
+/* End of dashboard.html */

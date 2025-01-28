@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div id="searchres_header">
+  <p>{{string}}</p>
+  <p>{{string2}}</p>
+</div>
+
+<table id="product-table">
+  <tr id="product-table-row">
+    <th id="product-table-id-column">Product ID</th>
+    <th id="product-table-image-column">Image</th>
+    <th id="product-table-name-column">Name</th>
+    <th id="product-table-description-column">Description</th>
+    <th id="product-table-link-column">Link</th>
+    <th id="product-table-actions-column">Actions</th>
+  </tr>
+  {% for product in data %}
+  <tr id="product-table-row-content">
+    <td id="product-table-id-row">{{product[0]}}</td>
+    <td id="product-table-image-row"><img src={{product[3]}} width="100" height="100"></td>
+    <td id="product-table-name-row">{{product[1]}}</td>
+    <td id="product-table-description-row">{{product[2]}}</td>
+    <td id="product-table-link-row"><a href={{product[4]}} target="_blank">Click Me!</a></td>
+    <td id="product-table-actions-row">
+      <button type="button" id="table-update-button" class="table-button-class" onclick="handleButtonClick(this)">EDIT</button>
+      <form action="/product/delete" method="post">
+        <button type="submit" id="table-delete-button" class="table-button-class" name="productdelete" value="{{product[0]}}">DELETE</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

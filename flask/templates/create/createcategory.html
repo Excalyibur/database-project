@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div id="create-category">
+
+  <div id="create-category-title">
+    <h5>CREATE CATEGORY</h5>
+  </div>
+
+  <form id="create-category-form" method="POST" action="createcategory">
+    <div class="create-category-form-group">
+      <input type="text" class="create-category-form-control" name="categoryid" id="categoryIdInput"
+        placeholder="Enter Category ID">
+    </div>
+    <div class="create-category-form-group">
+      <input type="text" class="create-category-form-control" name="category_name" id="categoryInput"
+        placeholder="Enter Category Name">
+    </div>
+    <button id="create-category-button" type="submit">ENTER</button>
+  </form>
+
+</div>
+
+{% endblock %}

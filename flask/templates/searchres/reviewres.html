@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block body %}
+<div id="searchres_header">
+  <p>{{string}}</p>
+  <p>{{string2}}</p>
+</div>
+
+<table id = "product-table">
+  <tr id = "product-table-row">
+    <th id = "product-table-id-column">Product ID</th>
+    <th id = "product-table-image-column">Image</th>
+    <th id = "product-table-name-column">Name</th>
+    <th id = "product-table-review-column">Review</th>
+    <th id = "product-table-username-column">Username</th>
+    <th id = "product-table-actions-column">Actions</th>
+  </tr>
+  {% for product in data %}
+  <tr id = "product-table-row-content">
+    <td id = "product-table-id-row">{{product[0]}}</td>
+    <td id = "product-table-image-row"><img src={{product[2]}} width="100" height="100"></td>
+    <td id = "product-table-name-row">{{product[1]}}</td>
+    <td id = "product-table-review-row">{{product[3]}}</td>
+    <td id = "product-table-username-row">{{product[4]}}</td>
+    <td id = "product-table-actions-row">
+      <form action="/review/delete" method="post">
+        <button type="submit" id="table-delete-button" class="table-button-class" name="reviewdelete" value="{{product[5]}}">DELETE</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

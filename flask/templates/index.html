@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/stylesheet.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <title>Home | AMAZIN</title>
+
+</head>
+
+<body>
+
+    <div id="top-body-section">
+
+        <div id="top-navigation-bar">
+            <div id="logo">
+                <img src="/static/images/Amazin-Logo.png">
+            </div>
+            <div id="nav-links">
+                <a id="leading-link" class="nav-item nav-link" href="/">Home</a>
+                <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+                <a class="nav-item nav-link" href="/createproduct">Create Product</a>
+                <a class="nav-item nav-link" href="/createreview">Create Review</a>
+                <a class="nav-item nav-link" href="/createuser">Create User</a>
+                <a class="nav-item nav-link" href="/createcategory">Create Category</a>
+            </div>
+        </div>
+
+        <div id="search-title-section">
+            <h5 id="search-title">Find Your Products Here</h5>
+        </div>
+
+        <div id="searchbar-section">
+            <form action="search" method="post">
+                <input id="main-search-bar" type="text" name="searchres" placeholder="Search..." autocomplete="off">
+                <button id="main-search-button" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div id="search-filter-section">
+            <button id="leading-filter-button1" class="filter-button-group">Category</button>
+            <button id="leading-filter-button2" class="filter-button-group">Review</button>
+            <button id="leading-filter-button3" class="filter-button-group">Rating</button>
+        </div>
+
+    </div>
+
+    <div id="bottom-body-section">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    const buttons = document.querySelectorAll('#search-filter-section button');
+    const searchTitle = document.getElementById('search-title');
+    const searchButton = document.getElementById('main-search-button');
+    const searchForm = document.querySelector('#searchbar-section form');
+
+    searchButton.addEventListener('click', () => {
+        const activeButton = document.querySelector('#search-filter-section button.active');
+        if (activeButton.id === 'leading-filter-button1') {
+            searchForm.action = '/category/search';
+        } else if (activeButton.id === 'leading-filter-button2') {
+            searchForm.action = '/review/search';
+        } else if (activeButton.id === 'leading-filter-button3') {
+            searchForm.action = '/ratings/search';
+        }
+
+        activeButton.classList.add('active');
+    });
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            let newTitle = '';
+            if (button.id === 'leading-filter-button1') {
+                newTitle = 'Find Your Category Here';
+            } else if (button.id === 'leading-filter-button2') {
+                newTitle = 'Find Your Review Here';
+            } else if (button.id === 'leading-filter-button3') {
+                newTitle = 'Find Your Rating Here';
+            }
+            searchTitle.textContent = newTitle;
+            localStorage.setItem('searchTitle', newTitle);
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+            localStorage.setItem('activeButton', button.id);
+        });
+    });
+
+    function setActiveButton() {
+        const currentPage = window.location.pathname;
+        const storedActiveButtonID = localStorage.getItem('activeButton');
+        let activeButton;
+
+        if (storedActiveButtonID) {
+            activeButton = document.getElementById(storedActiveButtonID);
+        } else {
+            if (currentPage.includes('/category/search')) {
+                activeButton = document.getElementById('leading-filter-button1');
+            } else if (currentPage.includes('/review/search')) {
+                activeButton = document.getElementById('leading-filter-button2');
+            } else if (currentPage.includes('/rating/search')) {
+                activeButton = document.getElementById('leading-filter-button3');
+            }
+        }
+
+        if (activeButton) {
+            activeButton.classList.add('active');
+        }
+    }
+
+    function setStoredSearchTitle() {
+        const storedTitle = localStorage.getItem('searchTitle');
+        if (storedTitle) {
+            searchTitle.textContent = storedTitle;
+        }
+    }
+
+    setActiveButton();
+    setStoredSearchTitle();
+    localStorage.removeItem('searchTitle');
+    localStorage.removeItem('activeButton');
+
+    // Edit button for productres.html
+    function handleButtonClick(button) {
+        // Get the row that contains the clicked button
+        var row = button.closest('tr');
+
+        // Make the row editable
+        row.contentEditable = true;
+
+        // Change the button text to "Update"
+        button.innerHTML = 'UPDATE';
+        button.classList.add('update-button-class');
+        button.classList.remove('table-button-class');
+
+        // Add a click event listener to the "Update" button
+        button.onclick = function () {
+            // Get the updated product information from the editable row
+            var updatedProduct = [
+                row.querySelector('#product-table-id-row').textContent,
+                row.querySelector('#product-table-name-row').textContent,
+                row.querySelector('#product-table-description-row').textContent,
+                row.querySelector('#product-table-image-row img').getAttribute('src'),
+                row.querySelector('#product-table-link-row a').getAttribute('href')
+            ];
+
+            // Create a form with the updated product information
+            var form = document.createElement('form');
+            form.action = '/product/update';
+            form.method = 'post';
+
+            var inputID = document.createElement('input');
+            inputID.type = 'hidden';
+            inputID.name = 'id';
+            inputID.value = updatedProduct[0];
+            form.appendChild(inputID);
+
+            var inputName = document.createElement('input');
+            inputName.type = 'hidden';
+            inputName.name = 'name';
+            inputName.value = updatedProduct[1];
+            form.appendChild(inputName);
+
+            var inputDescription = document.createElement('input');
+            inputDescription.type = 'hidden';
+            inputDescription.name = 'description';
+            inputDescription.value = updatedProduct[2];
+            form.appendChild(inputDescription);
+
+            var inputImage = document.createElement('input');
+            inputImage.type = 'hidden';
+            inputImage.name = 'image';
+            inputImage.value = updatedProduct[3];
+            form.appendChild(inputImage);
+
+            var inputLink = document.createElement('input');
+            inputLink.type = 'hidden';
+            inputLink.name = 'link';
+            inputLink.value = updatedProduct[4];
+            form.appendChild(inputLink);
+
+            // Submit the form
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+
+            // Make the row non-editable again
+            row.contentEditable = false;
+
+            // Change the button text back to "Edit"
+            button.innerHTML = 'EDIT';
+            button.classList.add('table-button-class');
+            button.classList.remove('update-button-class');
+        };
+    }
+
+</script>
